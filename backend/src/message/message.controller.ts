@@ -1,4 +1,4 @@
-import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { MessageService } from './message.service';
 import { JwtGuard } from 'src/auth/guard/jwt.guard';
 import { GetUser } from 'src/auth/decorators/getUser.decorator';
@@ -14,6 +14,12 @@ export class MessageController {
     @Post("/send")
     @UseGuards(JwtGuard)
     sendMessage(@GetUser() user: User, @Body() sendMessageDto: SendMessageDto){
-        
+        return this.messageService.sendMessage(user, sendMessageDto);
+    }
+
+    @Get("/getMessage/:id")
+    @UseGuards(JwtGuard)
+    getMessage(@GetUser() user: User, @Param("id") id: number){
+        return this.messageService.getPersonMessages(user, id);
     }
 }

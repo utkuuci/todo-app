@@ -1,5 +1,4 @@
 import { Column, CreateDateColumn, Entity, Index, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import { UserRoles } from "./roles.enum";
 import { Todo } from "../todo/todo.entity";
 import { Message } from "../message/message.entity";
 
