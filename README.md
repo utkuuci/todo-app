@@ -1,4 +1,4 @@
-# POSTEFFECTAI TODO APP
+# TODO APP
 
 ### Uygulamanın ER Diagramı aşağıdaki gibidir.
 
